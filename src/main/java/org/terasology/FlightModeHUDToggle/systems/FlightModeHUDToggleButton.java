@@ -65,8 +65,8 @@ public class FlightModeHUDToggleButton extends BaseComponentSystem implements HU
     @Override
     public void toggle() {
         MovementMode nextMode = MovementMode.WALKING;
-        if (getMovementMode() != MovementMode.GHOSTING) {
-            nextMode = MovementMode.GHOSTING;
+        if (getMovementMode() != MovementMode.FLYING) {
+            nextMode = MovementMode.FLYING;
         }
         getLocalCharacterEntity().send(new SetMovementModeEvent(nextMode));
     }
@@ -87,8 +87,8 @@ public class FlightModeHUDToggleButton extends BaseComponentSystem implements HU
         switch (getMovementMode()) {
             case CLIMBING:
                 return "Climbing";
-            //case FLYING:
-            //   return "Flying";
+            case FLYING:
+                return "Flying";
             case SWIMMING:
                 return "Swimming";
             case WALKING:
